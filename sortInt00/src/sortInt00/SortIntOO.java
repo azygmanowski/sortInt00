@@ -9,7 +9,7 @@ public class SortIntOO {
 	public  static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		int myArrayLength = 200000;
+		int myArrayLength = 100000;
 				
 		int[] myArraySort 	= new int [myArrayLength];
 		
