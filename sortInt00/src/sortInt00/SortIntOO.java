@@ -1,15 +1,19 @@
 package sortInt00;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
 import java.util.Random;
 
 public class SortIntOO {	
 	
 	static Random rn = new Random();	
 		
-	public  static void main(String[] args) {		
+	public  static void main(String[] args) throws IOException {		
 		
 		//Definition der Anzahl an zu sortierenden Elementen
-		int myArrayLength = 1000000;
+		int myArrayLength = 100000;
 				
 		//leeres Array definieren, aktueller Datentyp Integer (Ganzzahlen)
 		int[] myArraySort 	= new int [myArrayLength];
@@ -29,6 +33,12 @@ public class SortIntOO {
 		System.out.println("benötigte Zeit: " + (double)(endTime - startTime)/1000 + " Sekunden");
 		
 		//ausgabe(myArraySort);
+		
+		
+		//Hier ein Beispiel zum lesen einer Textdatei
+		List<String> lines = null;
+		lines = readFile();
+		System.out.println(lines);
 	}
 	
 	
@@ -94,12 +104,23 @@ public class SortIntOO {
 		a[j] = hilf;
 	}
 	
-	public static  void ausgabe (int[] a)
+	public static void ausgabe (int[] a)
 	{
 		for (int i = 0; i < a.length; i++) {
 			System.out.println(a[i]);
 		}		
 	}
+	
+	
+	public static List<String> readFile () throws IOException
+	{
+		List<String> lines = null;
+		lines = Files.readAllLines(Path.of("Wortliste.txt"));
+		lines.sort(null);	
+		
+		return lines;
+	}
+	
 	
 	
 	
